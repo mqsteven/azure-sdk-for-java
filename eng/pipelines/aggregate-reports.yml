@@ -106,7 +106,7 @@ jobs:
         GdnBreakAllTools: false
         GdnBreakGdnToolCredScan: true
         GdnBreakGdnToolCredScanSeverity: Error
-        GdnBreakBaselineFiles: $(Build.SourcesDirectory)/eng/dotnet.gdnbaselines
+        GdnBreakBaselineFiles: $(Build.SourcesDirectory)/eng/java.gdnbaselines
         GdnBreakBaselines: baseline      
       condition: succeededOrFailed()
     # Run link verification at the end as it will run no matter the pipeline passing or failing.
