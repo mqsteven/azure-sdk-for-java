@@ -108,14 +108,14 @@ jobs:
         GdnBreakGdnToolCredScanSeverity: Error
         GdnBreakBaselineFiles: $(Build.SourcesDirectory)/eng/java.gdnbaselines
         GdnBreakBaselines: baseline      
-      condition: succeededOrFailed()
+       condition: succeededOrFailed()
     # Run link verification at the end as it will run no matter the pipeline passing or failing.
     # If this task fails with an error it shouldn't prevent aggregate reports from being generated.
     - template: ../common/pipelines/templates/steps/verify-links.yml
       parameters:
         Directory: ""
         CheckLinkGuidance: $true
-
+        Condition: succeededOrFailed()
     - publish: $(Build.ArtifactStagingDirectory)
       condition: succeededOrFailed()
       displayName: 'Publish Report Artifacts'
